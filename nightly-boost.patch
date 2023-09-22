@@ -1,0 +1,99 @@
+diff --git a/scripts/boost/generate-ports.ps1 b/scripts/boost/generate-ports.ps1
+index a669d0635..a372d589e 100644
+--- a/scripts/boost/generate-ports.ps1
++++ b/scripts/boost/generate-ports.ps1
+@@ -1,7 +1,8 @@
+ [CmdletBinding()]
+ param (
+     $libraries = @(),
+-    $version = "1.83.0",
++    $nightly = "2023.9.22",
++    $version = "2023.9.22",
+     $portsDir = $null
+ )
+ 
+@@ -266,6 +267,17 @@ function GeneratePortManifest() {
+     & $vcpkg format-manifest "$portsDir/$PortName/vcpkg.json"
+ }
+ 
++function GetNightlySHA() {
++  param (
++    [string]$Library
++  )
++
++  $ref = git ls-remote --refs https://github.com/boostorg/$Library develop | ForEach-Object { $_ -split "\s+" }
++  $ref = $ref[0]
++
++  $ref
++}
++
+ function GeneratePort() {
+     param (
+         [string]$Library,
+@@ -298,13 +310,15 @@ function GeneratePort() {
+         )
+     }
+ 
++    $ref = GetNightlySHA -Library $Library
++
+     $portfileLines += @(
+         "vcpkg_from_github("
+         "    OUT_SOURCE_PATH SOURCE_PATH"
+         "    REPO boostorg/$Library"
+-        "    REF boost-$version"
++        "    REF $ref"
+         "    SHA512 $Hash"
+-        "    HEAD_REF master"
++        "    HEAD_REF develop"
+     )
+     [Array]$patches = Get-Item -Path "$portsDir/$portName/*.patch"
+     if ($null -eq $patches -or $patches.Count -eq 0) {
+@@ -380,7 +394,7 @@ if (!(Test-Path "$scriptsDir/boost")) {
+     "Cloning boost..."
+     Push-Location $scriptsDir
+     try {
+-        git clone https://github.com/boostorg/boost --branch boost-$version
++        git clone --depth 1 https://github.com/boostorg/boost --branch develop 
+     }
+     finally {
+         Pop-Location
+@@ -390,7 +404,8 @@ else {
+     Push-Location $scriptsDir/boost
+     try {
+         git fetch
+-        git checkout -f boost-$version
++        git checkout -f develop
++        git pull
+     }
+     finally {
+         Pop-Location
+@@ -424,10 +439,12 @@ $boostPortDependencies = @()
+ 
+ foreach ($library in $libraries) {
+     "Handling boost/$library..."
+-    $archive = "$scriptsDir/downloads/$library-boost-$version.tar.gz"
++    $sha = GetNightlySHA -Library $library
++    $archive = "$scriptsDir/downloads/$nightly/$library-boost-$version.tar.gz"
+     if (!(Test-Path $archive)) {
+         "Downloading boost/$library..."
+-        & $curl -L "https://github.com/boostorg/$library/archive/boost-$version.tar.gz" --output "$scriptsDir/downloads/$library-boost-$version.tar.gz"
++        New-Item -ItemType "Directory" $scriptsDir/downloads/$nightly -erroraction SilentlyContinue | out-null
++        & $curl -L "https://github.com/boostorg/$library/archive/$sha.tar.gz" --output "$scriptsDir/downloads/$nightly/$library-boost-$version.tar.gz"
+     }
+     $hash = & $vcpkg --x-wait-for-lock hash $archive
+     # remove prefix "Waiting to take filesystem lock on <path>/.vcpkg-root... "
+@@ -435,11 +452,11 @@ foreach ($library in $libraries) {
+         $hash = $hash[1]
+     }
+ 
+-    $unpacked = "$scriptsDir/libs/$library-boost-$version"
++    $unpacked = "$scriptsDir/libs/$nightly/$library-$sha"
+     if (!(Test-Path $unpacked)) {
+         "Unpacking boost/$library..."
+-        New-Item -ItemType "Directory" $scriptsDir/libs -erroraction SilentlyContinue | out-null
+-        Push-Location $scriptsDir/libs
++        New-Item -ItemType "Directory" $scriptsDir/libs/$nightly -erroraction SilentlyContinue | out-null
++        Push-Location $scriptsDir/libs/$nightly
+         try {
+             cmake -E tar xf $archive
+         }
