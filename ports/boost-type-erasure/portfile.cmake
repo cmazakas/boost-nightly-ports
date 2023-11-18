@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/type_erasure
-    REF 729f3e739abc65d36d46df470c5bab735599d042
-    SHA512 ae2647696ccf965a30dc7a6709d3304ef8555441a46f1b606138bfe3290106a62543d98ab1605570fe40ed57d9bf2dc0f83ee5f0b61978a76b2d52ba26758aa8
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 a86b9ba37558ecadd9850e79f221cd636f743daf3787f48bda56adab1d1b58ded5beb9689b1e694f43a43648ad448bf4ab2590cdacf215447ebfdd15df4152fc
+    HEAD_REF master
 )
 
 include(${CURRENT_HOST_INSTALLED_DIR}/share/boost-build/boost-modular-build.cmake)

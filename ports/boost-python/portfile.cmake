@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/python
-    REF 47d5bc76f69e20625214381c930a2fad5765e2b3
-    SHA512 9c3eaf77d70402498c347b5c027e0b05b3b3b00b58847493526e2c9566189e84fca66a828d42727d475a230a7f7cbfa2ea80473d1a0780aad02b6d2ac2152697
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 438d4da53e68eccebe7c14a9ec0c2c2d74a09f74c14f95f931931b90ebee737711da8e1cccce14dd489f20f4258f5227d11635b317facc7f9fe8b3d235f3fb0e
+    HEAD_REF master
 )
 
 include(${CURRENT_HOST_INSTALLED_DIR}/share/boost-build/boost-modular-build.cmake)

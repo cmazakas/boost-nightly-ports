@@ -2,10 +2,10 @@
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO boostorg/sync
-    REF e3b397214fc87e0f9802c6140e7af4ce68bdbb80
-    SHA512 4227905a9175599e73f0ecae18772644da0c2b92dc12e1fe72f95593b45a91393530e189beb316af1614b1498ca87128d82b77f3a3e18e79c7b5916facb67073
-    HEAD_REF develop
+    REPO boostorg/cobalt
+    REF boost-1.84.0.beta1
+    SHA512 26b545a9ac101e162c662c8024a45840c7d7ed473fbf31d66c598799495fdf908e578901f1db454f70aa3379f02ef07cc5d210f981a3f129fc2b9c06c552fdaf
+    HEAD_REF master
 )
 
 include(${CURRENT_HOST_INSTALLED_DIR}/share/boost-build/boost-modular-build.cmake)

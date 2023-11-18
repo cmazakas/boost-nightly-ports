@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/hana
-    REF 5dcac0f20fe6c03e615749fbf3b51e38333cbfe1
-    SHA512 ff65e6d20fa89ef5012b86fd13061e66efa15800d5570b92359d7a170cf963b0ba61f327910d652c9a56c0ab1d3bd57c01d0bd57777e3fa78c7d87d09fbd79be
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 894e0c2870d2a904a90f64f41ef60b70739a4ad5873ffdbbb343d302fe8a4eb8d3026155173ee3d5d76b6f603e9234e7766039095750bbf754bebba3a4dc7b77
+    HEAD_REF master
 )
 
 include(${CURRENT_INSTALLED_DIR}/share/boost-vcpkg-helpers/boost-modular-headers.cmake)

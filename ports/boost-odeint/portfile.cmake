@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/odeint
-    REF 2bbc186b43d7267e622c4e1ad9527e4a8ecc8c42
-    SHA512 068e45ff51b3ea5488196ebf2272237f702fc23eb36cea35cc43d482ad022f63640bacd169ab6137aa6180e7986866977a26453edd5d95681d77224b55b639d6
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 b121e234024fe70c3e34d60850b7d7f873ab04dfb807d37357a11c01793dcb5c68b61a9d41b2b355ac8ce30c7f1cc128ed336765a17e7bb87fbce10adc2568c9
+    HEAD_REF master
 )
 
 include(${CURRENT_INSTALLED_DIR}/share/boost-vcpkg-helpers/boost-modular-headers.cmake)

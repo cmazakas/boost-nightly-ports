@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/xpressive
-    REF 4679fbd23f962bfa78d44acf5fa48f6f790642c0
-    SHA512 577d18ef6756037afe6a90cf40a265b70691122df6f141198965569446b75bb9a0d759b3fa03ef6b0de2c15f1a014e60a95481fb7fd9903cc50f265e110736e2
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 74d848b2fd8b7a457a0945ee8e45dff89eb26b0f94f4432d9b3cef47207859e6c12d615e294f7e8fa79a7fbf9f7b69ceade79caa38b505b6d58ad9094680ae27
+    HEAD_REF master
 )
 
 include(${CURRENT_INSTALLED_DIR}/share/boost-vcpkg-helpers/boost-modular-headers.cmake)

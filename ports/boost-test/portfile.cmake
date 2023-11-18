@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/test
-    REF a6063692a714d87584e9b9a940a8633b8cb6479a
-    SHA512 53dd628840f2ac5a170355202a088b8d6b0c0ff9ce00f0e6b82cc389b61ae935307f714596f39b71fae49763b37de66386edc258a70484f079ca037ec1610e58
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 ac4d341ac89ec6931553ae57d6b11447b2e6441cf40aebd3236eb64897fa175d76996f4c59daf0751a6ab604c2f8862acbef31c181dc0c8cee8e2f21ec4c136d
+    HEAD_REF master
 )
 
 vcpkg_replace_string("${SOURCE_PATH}/build/Jamfile.v2"

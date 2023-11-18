@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/serialization
-    REF 897dec4c0160aa683e6f4720cd1dbd93e21e786b
-    SHA512 7ae4d7ca9cbaabf9d3973e9601ce0fff12a528ca74449216dd24fe57abc1484197d8f5a6725c4ec6dd8c8b212a632084934e87d9d4213e215f0801eb28cb3113
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 e4ac7d17e792feaeffe0d18f2733669da6414f63c77ced90963570cb30cc4af42aca439ec6dd0461bf8c03ca2cffab5d21ed272f958af3e2549b567192707ce9
+    HEAD_REF master
 )
 
 include(${CURRENT_HOST_INSTALLED_DIR}/share/boost-build/boost-modular-build.cmake)

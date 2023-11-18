@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/nowide
-    REF f20b831c62a9fe659a0ef9cee2f2bfe3704c4377
-    SHA512 c865db617f0015e0f633fbfa08526c96649b36deb43f5d397a91f8bf768b007a1680ce452858933fd750c11a35c3e89b51aea8e21522fe4d8923ae674e0a0c39
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 c07da2c0e0c5b028025d2a8ca7857fe73496b53679ce96a51d01c4268204836e6422ecae3f1bb33d2d1a97d0eedef98e6c58a7cc0431132945b08a6546d9f634
+    HEAD_REF master
 )
 
 vcpkg_replace_string("${SOURCE_PATH}/build/Jamfile.v2"
@@ -14,6 +14,9 @@ vcpkg_replace_string("${SOURCE_PATH}/build/Jamfile.v2"
 )
 file(COPY "${CURRENT_INSTALLED_DIR}/share/boost-config/checks" DESTINATION "${SOURCE_PATH}/config")
 include(${CURRENT_HOST_INSTALLED_DIR}/share/boost-build/boost-modular-build.cmake)
-boost_modular_build(SOURCE_PATH ${SOURCE_PATH})
+boost_modular_build(
+    SOURCE_PATH ${SOURCE_PATH}
+    BOOST_CMAKE_FRAGMENT "${CMAKE_CURRENT_LIST_DIR}/b2-options.cmake"
+)
 include(${CURRENT_INSTALLED_DIR}/share/boost-vcpkg-helpers/boost-modular-headers.cmake)
 boost_modular_headers(SOURCE_PATH ${SOURCE_PATH})

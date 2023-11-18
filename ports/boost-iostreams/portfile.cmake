@@ -3,12 +3,16 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/iostreams
-    REF 7c21f2d8663b62bb3257bfcdd326915bc928c48b
-    SHA512 8f5433a917023a7d663783b00c5566237c41a7ea3be4c6d0f68fb13dddc4c9f6ad5cee26d1f7b09734bccd6c33308c14aad7988ebf2a89acf9eb2f4f2baa401b
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 1e4157a43f8e103b80b5664530cf51436b7aff2d66b6956258e6e4c19ae7197e6fa87975849b25fe8739b0350090dcf861183f800fa3cc3252c65d10b5df21cd
+    HEAD_REF master
+    PATCHES Removeseekpos.patch
 )
 
 include(${CURRENT_HOST_INSTALLED_DIR}/share/boost-build/boost-modular-build.cmake)
-boost_modular_build(SOURCE_PATH ${SOURCE_PATH})
+boost_modular_build(
+    SOURCE_PATH ${SOURCE_PATH}
+    BOOST_CMAKE_FRAGMENT "${CMAKE_CURRENT_LIST_DIR}/b2-options.cmake"
+)
 include(${CURRENT_INSTALLED_DIR}/share/boost-vcpkg-helpers/boost-modular-headers.cmake)
 boost_modular_headers(SOURCE_PATH ${SOURCE_PATH})

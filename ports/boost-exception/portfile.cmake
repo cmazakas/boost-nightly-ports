@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/exception
-    REF fe23c01a93757117916e6b8dd393ab2ecabf16bc
-    SHA512 2b2a70c763ca3067a620f811280a677de7d2a7b482ff9f39507fa5a61f4b7fef9aa691a940dfe70d6e8122fba557c7bf1edd2443eb84be76b8f760b524b261e0
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 46d985bb19e8b04124cedb04e2a9c1b3c88e58c45e414113428bd1eaf5c932fb20adb5e394b1f1b15678d0b982b425f5fe887e866d9c36c5561d86bcd728f507
+    HEAD_REF master
 )
 
 include(${CURRENT_HOST_INSTALLED_DIR}/share/boost-build/boost-modular-build.cmake)

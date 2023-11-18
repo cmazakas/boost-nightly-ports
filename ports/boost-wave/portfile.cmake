@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/wave
-    REF 61abf8b6b98d8937515a4eddf6d0d7274921dcda
-    SHA512 d39c9854868c768c457a32696fb51f1da7915c337796f14cf57544cdc6c4a3caf6fb9fbc7274b2455d7db72d97eb4c984a8aff138d2d1390d7b37600ac20889a
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 2040e9f7cab00c7ac4286d3efc94a8512ce67e3b06ab0c4ec0855e60cab07f72ba4b03602af8f6d7fa8f98aedfbab76cfef61ebef3627e53f86f8d693e867120
+    HEAD_REF master
 )
 
 vcpkg_replace_string("${SOURCE_PATH}/build/Jamfile.v2"

@@ -5,9 +5,9 @@ vcpkg_buildpath_length_warning(37)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/system
-    REF b0ef682e3d94f98478c00513ea7819f384a36f83
-    SHA512 01ffd0b7d0f9890921997ec61c4f47b0393455be1b186b5844de6a81ca057ac5aced3c13afefad7f9a0bbf823577edfc4a4556226b74c5268333679d50af0f40
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 5436ac74d4eec658dca9d9e50a34132a9147b6f2f6e15f655c8524f70e0be4f90fa9fb8a2a5b874db493150fa7e261f8dc6616164d06cd5c7e25f1fd5954d85e
+    HEAD_REF master
 )
 
 include(${CURRENT_HOST_INSTALLED_DIR}/share/boost-build/boost-modular-build.cmake)

@@ -3,9 +3,9 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO boostorg/interprocess
-    REF 718e17dd3e365d83c90f9a93ecad94a4dfcc07c5
-    SHA512 072e844faa87fd1a4731add4136e5f91e63327e0a0045c299b7dcd9111d14f058738bc2382bce75490762c34be0f88ef8cc8af0a6da56008c7428de6190b15e2
-    HEAD_REF develop
+    REF boost-1.84.0.beta1
+    SHA512 d5b3c125efff15099b1a2bebbbcb66c88e1525ab0da8d7e99b59f001086da49a62ae50b592e9a1503d52bfef6f0f2abe78749fa02fae00797222eae61adaa1ae
+    HEAD_REF master
 )
 
 include(${CURRENT_INSTALLED_DIR}/share/boost-vcpkg-helpers/boost-modular-headers.cmake)
